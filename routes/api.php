@@ -16,13 +16,13 @@ use App\Http\Controllers\API\AuthController;
 |
 */
 
-/* Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
-}); */
+});
 
 Route::middleware('auth:sanctum')->group( function () {
     Route::resource('products', ProductController::class);
 });
 
-Route::post('login', [AuthController::class, 'login']);
-Route::post('register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/register', [AuthController::class, 'register']);
