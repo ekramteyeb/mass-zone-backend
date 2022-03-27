@@ -53,24 +53,18 @@ class UserController extends BaseController
         $input = $request->all();
 
         $validator = Validator::make($input, [
-            'name' => 'required',
-            'price' => 'required',
-            'image' => 'required',
-            'category' => 'required',
-            'available' => 'required',
-            'details' => 'required'
+            'email' => 'nullable',
+            'password' => 'nullable',
+            'device' => 'nullable',
+            
         ]);
 
         if($validator->fails()){
             return $this->handleError($validator->errors());       
         }
 
-        $user->name = $input['name'];
-        $user->price = $input['price'];
-        $user->image = $input['image'];
-        $user->category = $input['category'];
-        $user->available = $input['available'];
-        $user->details = $input['details'];
+        $user->device = $input['device'];
+        
         $user->save();
         
         return $this->handleResponse(new UserResource($user), 'User successfully updated!');
