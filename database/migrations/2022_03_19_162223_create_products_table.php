@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('image');
             $table->string('category');
             $table->string('available');
-            $table->text('details');   
+            $table->text('details')->nullable();   
             $table->timestamps();
         });
     }
