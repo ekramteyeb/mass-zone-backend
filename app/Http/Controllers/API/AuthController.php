@@ -40,7 +40,7 @@ class AuthController extends BaseController
             return $this->handleError($validator->errors());       
         }
    
-        $input = $request->all();
+        $input = JSON.parse($request->all());
         $input['password'] = bcrypt($input['password']);
         $user = User::create($input);
         $success['token'] =  $user->createToken('LaravelSanctumAuth')->plainTextToken;
