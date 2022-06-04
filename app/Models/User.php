@@ -14,7 +14,7 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
-     * The attributes thatt are mass assignable.
+     * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
